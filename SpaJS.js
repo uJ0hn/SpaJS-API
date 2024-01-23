@@ -11,6 +11,11 @@ class SpaJS {
         SpaJS.spaApi = this;
         this.spaApi = this;
         express.get("/assets/js/handler.js", (req,res) => {
+            const urlAtual = req.protocol + '://' + req.get('host')
+            if(!req.headers.referer.startsWith(urlAtual)) {
+                res.send("Não pode acessar esse arquivo diretamente.")
+                return
+            }
             res.sendFile(p.join(__dirname, `public/handler.js`));
         })
     }
