@@ -1,5 +1,4 @@
 const p = require("path");
-const ex = require("express");
 
 class SpaJS {
     app;
@@ -12,7 +11,7 @@ class SpaJS {
         this.spaApi = this;
         express.get("/assets/js/handler.js", (req,res) => {
             const urlAtual = req.protocol + '://' + req.get('host')
-            if(!req.headers.referer.startsWith(urlAtual)) {
+            if(req.headers.referer === undefined || !req.headers.referer.startsWith(urlAtual) ) {
                 res.send("Não pode acessar esse arquivo diretamente.")
                 return
             }
@@ -21,7 +20,7 @@ class SpaJS {
     }
 
 
-    get(path, callback, page) {
+    get(path, callback) {
         this.app.get(path, (req, res) => {
             if (req.query["javascript"] === undefined && req.headers["javascript"] === undefined) {
                 res.sendFile(p.join(__dirname, `public/index.html`));
