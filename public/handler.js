@@ -11,7 +11,9 @@ function a(b) {
         }
     });
 }
-
+window.onload = function () {
+    a(true);
+}
 function c(h) {
     fetch(h + "?javascript=true", {headers: new Headers({"javascript": "JavaScript-SPA"})})
         .then(i => i.text())
@@ -54,6 +56,3 @@ window.addEventListener('popstate', function(t) {
     c(location.href);
 });
 
-window.onload = function () {
-    a(true);
-}
