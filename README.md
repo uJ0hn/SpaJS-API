@@ -4,6 +4,7 @@ Single Page APP to NodeJS in backend with express
 # Install
 `npm i https://github.com/uJ0hn/SpaJS-API/tree/master`
 
+# Example
 ```javascript
 const express = require('express')
 const app = express()
