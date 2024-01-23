@@ -1,4 +1,8 @@
-# Welcome to StackEdit!
+# SpaJS- API
+Single Page APP to NodeJS in backend with express
+
+# Install
+`npm i https://github.com/uJ0hn/SpaJS-API/tree/master`
 
 ```javascript
 const express = require('express')
